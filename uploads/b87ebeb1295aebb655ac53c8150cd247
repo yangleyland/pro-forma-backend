@@ -1,0 +1,24 @@
+﻿Equipment ID,user_id,Exclude?,Electrification Category,Electrification Scenario,Replacement Year,Expected Lifetime,End of life,Domicile Facility,Simplified Domicile,EV Purchase Cost pre-incentive,EV Purchase Cost post-incentive,Default Replacement Allocation,EV Annual Maintenance Costs,Existing Vehicle Annual Maintenance,EV Annual Charging Costs,Existing Vehicle Annual Fuel Costs,"HVIP, PG&E EV Fleet Program, and Other Incentives",IRA Incentives, GHG Reductions tons ,Annual KWh
+C07,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,33000,33000,30000,784,1961,274,378,0,0,1.2,903
+C08,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,33000,33000,30000,784,1961,128,177,0,0,1,423
+C09,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,338,404,0,0,1.3,1115
+C10,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,33000,33000,30000,784,1961,383,529,0,0,1.2,1265
+C31,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,144,173,0,0,0.3,477
+C35,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,264,316,0,0,1,872
+L69,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,243,291,0,0,0.2,803
+L76,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,164,196,0,0,1.4,540
+C01,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,33000,33000,30000,784,1961,167,230,0,0,0.3,550
+C04,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,33000,33000,30000,784,1961,167,230,0,0,0.3,550
+C05,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,105,126,0,0,0.4,347
+C63,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2029,10,2039,City Hall/City Plaza,City Hall/City Plaza,33000,33000,22000,784,1961,144,172,0,0,0.4,474
+V03,1,No,Potentially Electrifiable,Whole Fleet Electrification Excluding Exemptions,2026,10,2036,City Hall/City Plaza,City Hall/City Plaza,51700,49700,42000,882,2206,199,305,0,2000,0.5,658
+A15,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2028,10,2038,City Hall/City Plaza,City Hall/City Plaza,33000,33000,25075,784,1961,206,132,0,0,0.1,681
+A25,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,33000,33000,25075,784,1961,231,148,0,0,0.3,762
+C20,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2028,10,2038,City Hall/City Plaza,City Hall/City Plaza,33000,33000,25075,784,1961,223,143,0,0,1.1,738
+C40,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2028,10,2038,City Hall/City Plaza,City Hall/City Plaza,33000,33000,25075,784,1961,296,190,0,0,1,976
+C41,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2026,10,2036,City Hall/City Plaza,City Hall/City Plaza,33000,33000,25075,784,1961,264,170,0,0,0.3,872
+C86,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2026,10,2036,City Hall/City Plaza,City Hall/City Plaza,33000,33000,25075,784,1961,195,125,0,0,0.5,643
+L21,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2030,10,2040,City Hall/City Plaza,City Hall/City Plaza,54995,47495,33695,882,2206,750,833,0,7500,3.9,2476
+L37,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,54995,47495,33695,882,2206,377,419,0,7500,1.4,1245
+L72,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2024,10,2034,City Hall/City Plaza,City Hall/City Plaza,54995,47495,33695,882,2206,213,236,0,7500,0.5,703
+L74,1,No,Medium- and Heavy-Duty Vehicles Only,Medium- and Heavy-Duty Vehicles Only,2028,10,2038,City Hall/City Plaza,City Hall/City Plaza,54995,47495,33695,882,2206,437,485,0,7500,1.6,1443
