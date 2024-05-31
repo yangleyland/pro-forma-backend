@@ -8,6 +8,7 @@ const { getFleetData } = require("./controllers/fleetController");
 const { uploadFile } = require("./controllers/uploadController");
 const { addControl,getControls, updateControls } = require("./controllers/controlsController");
 const { addPhase,getPhasesByUserId } = require("./controllers/phaseController");
+const {getAdvancedControls} = require("./controllers/advancedController");
 
 
 const supabase = require("./supabaseClient");
@@ -37,8 +38,14 @@ app.get('/api/controls/:userId',getControls);
 
 app.patch('/api/controls/:userId',updateControls)
 
+
+//phases
 app.post('/api/phases', addPhase);
 app.get('/api/phases/:userId',getPhasesByUserId);
+
+
+//advanced controls
+app.get('/api/advancedcontrols/:userId',getAdvancedControls);
 
 
 app.listen(PORT, () => {
