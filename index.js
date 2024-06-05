@@ -7,7 +7,7 @@ var cors = require('cors')
 const { getFleetData } = require("./controllers/fleetController");
 const { uploadFile } = require("./controllers/uploadController");
 const { addControl,getControls, updateControls } = require("./controllers/controlsController");
-const { addPhase,getPhasesByUserId } = require("./controllers/phaseController");
+const { addPhase,getPhasesByUserId,updatePhases } = require("./controllers/phaseController");
 const {getAdvancedControls,updateFleetEconomics} = require("./controllers/advancedController");
 
 
@@ -42,6 +42,7 @@ app.patch('/api/controls/:userId',updateControls)
 //phases
 app.post('/api/phases', addPhase);
 app.get('/api/phases/:userId',getPhasesByUserId);
+app.post('/api/phases/update',updatePhases);
 
 
 //advanced controls
