@@ -1,6 +1,7 @@
 // index.js
 const express = require("express");
 const multer = require("multer");
+const os = require('os')
 const csv = require("csv-parser");
 var cors = require('cors')
 
@@ -12,7 +13,7 @@ const {getAdvancedControls,updateFleetEconomics,addAdvancedControl} = require(".
 
 
 const supabase = require("./supabaseClient");
-const upload = multer({ dest: "uploads/" });
+const upload = multer({ dest: os.tmpdir() })
 const fs = require("fs");
 const app = express();
 

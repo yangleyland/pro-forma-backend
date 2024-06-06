@@ -30,10 +30,19 @@ const uploadFile = async (req, res) => {
     .on("end", async () => {
       for (const item of results) {
         item.user_id = userId;
+        let obj = {};
+        Object.keys(item).forEach(key => {
+          if (key.startsWith("ES: ")) {
+            obj[key.replace("ES: ", "")] = item[key]==="1"?true:false;
+            delete item[key];
+          }
+        });
+        item.electrification_scenario = obj;
       }
 
       const jsonData = JSON.stringify(results);
       const jsonObject = JSON.parse(jsonData);
+
       const { data, error } = await supabase
         .from("fleet data")
         .insert(jsonObject);
