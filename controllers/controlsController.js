@@ -1,13 +1,19 @@
 const supabase = require("../supabaseClient");
 
 const addControl = async (req, res) => {
-
-  const {id,electrification_scenario,site,incentives,ira_incentives,phase1,phase2,phase3} = req.body;
+  const {
+    id,
+    electrification_scenario,
+    site,
+    incentives,
+    ira_incentives,
+    phase1,
+    phase2,
+    phase3,
+  } = req.body;
 
   if (
     !id ||
-    !electrification_scenario ||
-    !site ||
     typeof incentives === "undefined" ||
     typeof ira_incentives === "undefined"
   ) {
@@ -18,7 +24,16 @@ const addControl = async (req, res) => {
     const { data, error } = await supabase
       .from("controls")
       .insert([
-        { id,electrification_scenario,site,incentives,ira_incentives,phase1,phase2,phase3 },
+        {
+          id,
+          electrification_scenario,
+          site,
+          incentives,
+          ira_incentives,
+          phase1,
+          phase2,
+          phase3,
+        },
       ]);
 
     if (error) {
