@@ -5,7 +5,7 @@ const os = require('os')
 const csv = require("csv-parser");
 var cors = require('cors')
 
-const { getFleetData } = require("./controllers/fleetController");
+const { getFleetData,updateFleet } = require("./controllers/fleetController");
 const { uploadFile } = require("./controllers/uploadController");
 const { addControl,getControls, updateControls } = require("./controllers/controlsController");
 const { addPhase,getPhasesByUserId,updatePhases } = require("./controllers/phaseController");
@@ -28,6 +28,7 @@ app.use(cors())
 
 
 app.get("/api/fleet/:userid", getFleetData);
+app.post("/api/fleet/update", updateFleet);
 
 app.post("/upload", upload.single("file"), uploadFile);
 
