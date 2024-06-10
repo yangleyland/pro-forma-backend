@@ -31,9 +31,12 @@ const uploadFile = async (req, res) => {
       for (const item of results) {
         item.user_id = userId;
         let obj = {};
-        Object.keys(item).forEach(key => {
+        Object.keys(item).forEach((key) => {
+          if (item[key] === "") {
+            item[key] = 0;
+          }
           if (key.startsWith("ES: ")) {
-            obj[key.replace("ES: ", "")] = item[key]==="1"?true:false;
+            obj[key.replace("ES: ", "")] = item[key] === "1" ? true : false;
             delete item[key];
           }
         });
@@ -50,7 +53,7 @@ const uploadFile = async (req, res) => {
       if (error) {
         return res.status(500).send(error.message);
       }
-      res.json({ message: 'File uploaded successfully!' });
+      res.json({ message: "File uploaded successfully!" });
     });
 };
 

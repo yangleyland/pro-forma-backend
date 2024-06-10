@@ -8,8 +8,9 @@ var cors = require('cors')
 const { getFleetData,updateFleet } = require("./controllers/fleetController");
 const { uploadFile } = require("./controllers/uploadController");
 const { addControl,getControls, updateControls } = require("./controllers/controlsController");
-const { addPhase,getPhasesByUserId,updatePhases } = require("./controllers/phaseController");
+const { addPhase,getPhasesByUserId,updatePhases,deletePhase } = require("./controllers/phaseController");
 const {getAdvancedControls,updateFleetEconomics,addAdvancedControl} = require("./controllers/advancedController");
+const {getChargerData,addChargerData} = require("./controllers/chargerCostController");
 
 
 const supabase = require("./supabaseClient");
@@ -45,6 +46,7 @@ app.patch('/api/controls/:userId',updateControls)
 app.post('/api/phases', addPhase);
 app.get('/api/phases/:userId',getPhasesByUserId);
 app.post('/api/phases/update',updatePhases);
+app.delete('/api/phases/:id',deletePhase);
 
 
 //advanced controls
@@ -53,6 +55,11 @@ app.get('/api/advancedcontrols/:userId',getAdvancedControls);
 app.post('/api/advancedcontrols/', updateFleetEconomics);
 
 app.post('/api/advancedcontrols/add', addAdvancedControl);
+
+
+//charger data
+app.get('/api/chargerdata/:userId',getChargerData);
+app.get('/api/chargerdata/add/:id',addChargerData);
 
 
 
