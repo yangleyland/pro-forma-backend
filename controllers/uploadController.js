@@ -53,6 +53,11 @@ const uploadFile = async (req, res) => {
       if (error) {
         return res.status(500).send(error.message);
       }
+
+      const { error: defaultError } = await supabase
+        .from("default data")
+        .insert({ id: userId, fleet_data: jsonObject });
+
       res.json({ message: "File uploaded successfully!" });
     });
 };

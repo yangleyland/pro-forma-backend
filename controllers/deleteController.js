@@ -42,4 +42,29 @@ const deleteUser = async (req, res) => {
   }
 };
 
-module.exports = { deleteUser };
+const resetToDefault = async (req, res) => {
+  const { userId } = req.params;
+  try {
+    const { data: jsonData, error: defaultError } = await supabase
+      .from("default data") // Replace with your actual source table
+      .select("fleet_data") // Replace with the actual column containing JSON data
+      .eq("id", userId);
+
+    const jsonObject = jsonData[0].fleet_data;
+
+    await supabase.from("fleet data").delete().eq("user_id", userId);
+
+    const { data, error } = await supabase
+      .from("fleet data")
+      .insert(jsonObject);
+
+    if (error) {
+      throw new Error(`Error inserting data: ${error.message}`);
+    }
+    res.status(200).json({ message: "Default data restored" });
+  } catch (error) {
+    return res.status(500).send(error.message);
+  }
+};
+
+module.exports = { deleteUser, resetToDefault };
