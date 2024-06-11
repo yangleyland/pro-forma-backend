@@ -11,6 +11,7 @@ const { addControl,getControls, updateControls } = require("./controllers/contro
 const { addPhase,getPhasesByUserId,updatePhases,deletePhase } = require("./controllers/phaseController");
 const {getAdvancedControls,updateFleetEconomics,addAdvancedControl} = require("./controllers/advancedController");
 const {getChargerData,addChargerData} = require("./controllers/chargerCostController");
+const {deleteUser} = require("./controllers/deleteController");
 
 
 const supabase = require("./supabaseClient");
@@ -60,6 +61,10 @@ app.post('/api/advancedcontrols/add', addAdvancedControl);
 //charger data
 app.get('/api/chargerdata/:userId',getChargerData);
 app.get('/api/chargerdata/add/:id',addChargerData);
+
+
+//delete
+app.delete('/api/delete-user/:userId', deleteUser);
 
 
 
