@@ -48,8 +48,15 @@ const uploadFile = async (req, res) => {
 
       const { data, error } = await supabase
         .from("fleet data")
-        .insert(jsonObject);
+        .insert(jsonObject)
+        .select();
 
+
+
+
+      if (data.length === 0) {
+        return res.status(500).send({error: "Error uploading file"});
+      }
       if (error) {
         return res.status(500).send(error.message);
       }
