@@ -12,6 +12,7 @@ const { addPhase,getPhasesByUserId,updatePhases,deletePhase } = require("./contr
 const {getAdvancedControls,updateFleetEconomics,addAdvancedControl} = require("./controllers/advancedController");
 const {getChargerData,addChargerData} = require("./controllers/chargerCostController");
 const {deleteUser,resetToDefault} = require("./controllers/deleteController");
+const {saveDefault,updateDefault} = require("./controllers/defaultController");
 
 
 const supabase = require("./supabaseClient");
@@ -67,6 +68,9 @@ app.get('/api/chargerdata/add/:id',addChargerData);
 app.delete('/api/delete-user/:userId', deleteUser);
 app.get('/api/reset-to-default/:userId', resetToDefault);
 
+//default data
+app.get('/api/save-default', saveDefault);
+app.get('/api/update-default', updateDefault);
 
 
 app.listen(PORT, () => {
