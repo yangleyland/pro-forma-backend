@@ -1,18 +1,21 @@
 // index.js
 const express = require("express");
 const multer = require("multer");
+const serverless = require('serverless-http');
+
 const os = require('os')
 const csv = require("csv-parser");
 var cors = require('cors')
 
-const { getFleetData,updateFleet } = require("./controllers/fleetController");
+const { getFleetData,updateFleet,patchFleet } = require("./controllers/fleetController");
 const { uploadFile } = require("./controllers/uploadController");
 const { addControl,getControls, updateControls } = require("./controllers/controlsController");
-const { addPhase,getPhasesByUserId,updatePhases,deletePhase } = require("./controllers/phaseController");
+const { addPhase,getPhasesByUserId,updatePhases,deletePhase,patchPhases } = require("./controllers/phaseController");
 const {getAdvancedControls,updateFleetEconomics,addAdvancedControl} = require("./controllers/advancedController");
 const {getChargerData,addChargerData} = require("./controllers/chargerCostController");
 const {deleteUser,resetToDefault} = require("./controllers/deleteController");
 const {saveDefault,updateDefault} = require("./controllers/defaultController");
+const {getCityInfo} = require("./controllers/cityInfoController");
 
 
 const supabase = require("./supabaseClient");
@@ -32,6 +35,7 @@ app.use(cors())
 
 app.get("/api/fleet/:userid", getFleetData);
 app.post("/api/fleet/update", updateFleet);
+app.patch("/api/fleet/patch", patchFleet);
 
 app.post("/upload", upload.single("file"), uploadFile);
 
@@ -49,6 +53,7 @@ app.post('/api/phases', addPhase);
 app.get('/api/phases/:userId',getPhasesByUserId);
 app.post('/api/phases/update',updatePhases);
 app.delete('/api/phases/:id',deletePhase);
+app.patch('/api/phases/patch',patchPhases);
 
 
 //advanced controls
@@ -72,7 +77,11 @@ app.get('/api/reset-to-default/:userId', resetToDefault);
 app.get('/api/save-default', saveDefault);
 app.get('/api/update-default', updateDefault);
 
+//get city info
+app.get('/api/city-info/:userId', getCityInfo);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+module.exports.handler = serverless(app);

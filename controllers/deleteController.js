@@ -28,7 +28,13 @@ const deleteUser = async (req, res) => {
       .eq("user_id", userId));
     if (error) throw error;
 
-    ({ error } = await supabase.from("phases").delete().eq("user_id", userId));
+    ({ error } = await supabase
+      .from("fleet data")
+      .delete()
+      .eq("user_id", userId));
+    if (error) throw error;
+
+    ({ error } = await supabase.from("default data").delete().eq("id", userId));
     if (error) throw error;
 
     await supabase.auth.admin.deleteUser(userId);

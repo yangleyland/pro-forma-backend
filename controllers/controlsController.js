@@ -7,9 +7,6 @@ const addControl = async (req, res) => {
     site,
     incentives,
     ira_incentives,
-    phase1,
-    phase2,
-    phase3,
   } = req.body;
 
   if (
@@ -29,10 +26,7 @@ const addControl = async (req, res) => {
           electrification_scenario,
           site,
           incentives,
-          ira_incentives,
-          phase1,
-          phase2,
-          phase3,
+          ira_incentives
         },
       ]);
 

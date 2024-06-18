@@ -45,4 +45,47 @@ const updateFleet = async (req, res) => {
   return res.status(200).json(data);
 };
 
-module.exports = { getFleetData, updateFleet };
+const patchFleet = async (req, res) => {
+  const { equipment_id } = req.body;
+  const updateFields = {};
+
+  // List of fields that can be updated
+  const fields = [
+    "Equipment ID",
+    "Exclude?",
+    "Replacement Year",
+    "EV Purchase Cost pre-incentive",
+    "Default Replacement Allocation",
+    "HVIP, PG&E EV Fleet Program, and Other Incentives",
+    "IRA Incentives"
+  ];
+
+  // Dynamically add fields to the update object if they exist in the request body
+  fields.forEach(field => {
+    if (req.body[field] !== undefined) {
+      updateFields[field] = req.body[field];
+    }
+  });
+
+  if (Object.keys(updateFields).length === 0) {
+    return res.status(400).json({ error: "No valid fields to update" });
+  }
+
+  try {
+    const { data, error } = await supabase
+      .from("fleet data")
+      .update(updateFields)
+      .eq("equipment_id", equipment_id)
+      .select();
+
+    if (error) {
+      return res.status(400).json(error);
+    }
+
+    return res.status(200).json(data);
+  } catch (err) {
+    return res.status(500).json({ error: "An unexpected error occurred" });
+  }
+};
+
+module.exports = { getFleetData, updateFleet,patchFleet };
