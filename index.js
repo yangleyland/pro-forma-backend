@@ -12,10 +12,10 @@ const { uploadFile } = require("./controllers/uploadController");
 const { addControl,getControls, updateControls } = require("./controllers/controlsController");
 const { addPhase,getPhasesByUserId,updatePhases,deletePhase,patchPhases } = require("./controllers/phaseController");
 const {getAdvancedControls,updateFleetEconomics,addAdvancedControl} = require("./controllers/advancedController");
-const {getChargerData,addChargerData} = require("./controllers/chargerCostController");
+const {getChargerData,addChargerData,updateChargerData} = require("./controllers/chargerCostController");
 const {deleteUser,resetToDefault} = require("./controllers/deleteController");
 const {saveDefault,updateDefault} = require("./controllers/defaultController");
-const {getCityInfo} = require("./controllers/cityInfoController");
+const {getCityInfo,updateCityInfo} = require("./controllers/cityInfoController");
 
 
 const supabase = require("./supabaseClient");
@@ -67,6 +67,7 @@ app.post('/api/advancedcontrols/add', addAdvancedControl);
 //charger data
 app.get('/api/chargerdata/:userId',getChargerData);
 app.get('/api/chargerdata/add/:id',addChargerData);
+app.patch('/api/chargerdata/patch/:userId',updateChargerData);
 
 
 //delete
@@ -79,6 +80,7 @@ app.get('/api/update-default', updateDefault);
 
 //get city info
 app.get('/api/city-info/:userId', getCityInfo);
+app.patch('/api/city-info/patch/:userId', updateCityInfo);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

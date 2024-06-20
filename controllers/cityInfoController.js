@@ -34,4 +34,28 @@ const getCityInfo = async (req, res) => {
   }
 }
 
-module.exports = { getCityInfo };
+const updateCityInfo = async (req, res) => {
+  const { userId } = req.params;
+  const updates = req.body;
+
+  try {
+    const { data, error } = await supabase
+      .from("city info")
+      .update(updates)
+      .eq("id", userId)
+      .select("*");
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    if (data.length === 0) {
+      return res.status(404).json({ error: "City info not found" });
+    }
+
+    return res.json(data); // Return the updated entry
+  } catch (err) {
+    res.status(500).json({ error: "An unexpected error occurred" });
+  }
+};
+module.exports = { getCityInfo,updateCityInfo};

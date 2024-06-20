@@ -39,4 +39,29 @@ const addChargerData = async (req, res) => {
   }
 };
 
-module.exports = { getChargerData, addChargerData };
+const updateChargerData = async (req, res) => {
+  const { userId } = req.params;
+  const updates = req.body;
+
+  try {
+    const { data, error } = await supabase
+      .from("charger costs")
+      .update(updates)
+      .eq("id", userId)
+      .select("*");
+
+    if (error) {
+      return res.status(500).json({ error: error.message });
+    }
+
+    if (data.length === 0) {
+      return res.status(404).json({ error: "Charger data not found" });
+    }
+
+    return res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: "An unexpected error occurred" });
+  }
+};
+
+module.exports = { getChargerData, addChargerData,updateChargerData};
