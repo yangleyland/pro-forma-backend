@@ -16,20 +16,29 @@ const updateDefault = async (req, res) => {
       .eq("id", userId);
 
     const jsonObject = jsonData[0][mapping[tableName]];
-
     if (jsonObject === null) {
       return res.status(404).json({ error: "Default data not found" });
     }
+    // Function to remove specified keys from an object
+    const removeKeys = (obj, keysToRemove) => {
+      keysToRemove.forEach((key) => delete obj[key]);
+      return obj;
+    };
+
+    // Remove "Domicile Facility" keys from each object in the array
+    const updatedJsonObject = jsonObject.map((item) =>
+      removeKeys(item, ["Domicile Facility"])
+    );
     await supabase
       .from(tableName)
       .delete()
       .eq(tableName == "advanced controls" ? "id" : "user_id", userId);
 
-    const { data, error } = await supabase.from(tableName).insert(jsonObject);
-
+    const { data, error } = await supabase.from(tableName).insert(updatedJsonObject);
     if (error) {
       throw new Error(`Error inserting data: ${error.message}`);
     }
+
     res.status(200).json({ message: "Default data restored" });
   } catch (error) {
     return res.status(500).send(error.message);
@@ -56,7 +65,6 @@ const saveDefault = async (req, res) => {
 
   const jsonData = JSON.stringify(data);
 
-  // console.log(jsonData)
 
   const mapping = {
     "advanced controls": "advanced_controls",
